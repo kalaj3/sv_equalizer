@@ -1,0 +1,26 @@
+
+user flow: 
+
+1. press reset button 
+2. press record button  (starts n second timer - determined by memory size)
+3. turn led on + make it blink the last n*.9 seconds 
+4. if pressed send -> skip to 6
+5. if pressed record, clear ddr -> skip to 2
+6. send data to equalizer
+7. **temp equalizer black box**
+8. equalizer valid flag
+9. play audio
+
+---
+1. Recieve data from PDM MIC, convert data into PCM and 
+2. convert the data into a .wav(add ruff heading)
+
+
+
+----
+xilinx ip used
+
+
+cic
+sigma delta 
+fifo    
