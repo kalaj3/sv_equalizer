@@ -1,0 +1,1 @@
+gcc -g -I./kissfft -L./kissfft -o wav_processor wav_processor.c -lkissfft -lsndfile
