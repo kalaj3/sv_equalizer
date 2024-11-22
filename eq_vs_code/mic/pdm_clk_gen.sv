@@ -38,7 +38,7 @@ module pdm_clk_gen #(
             clk_counter <= 0;
             m_clk_i <= 0;
             m_clk_rising_i <= 0;
-            pcm_counter <= 0;
+            
         end else begin
             m_clk_rising_i<=0;
             // Clock division logic

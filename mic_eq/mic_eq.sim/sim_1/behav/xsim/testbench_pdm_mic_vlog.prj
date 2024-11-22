@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../mic_eq.srcs/sources_1/imports/eq_vs_code/mic/pdm_clk_gen.sv" \
+"../../../../mic_eq.srcs/sources_1/imports/eq_vs_code/mic/pdm_mic.sv" \
+"../../../../mic_eq.srcs/sources_1/imports/eq_vs_code/tbs/read_pdm_from_file.sv" \
+"../../../../mic_eq.srcs/sources_1/imports/eq_vs_code/tbs/mic_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

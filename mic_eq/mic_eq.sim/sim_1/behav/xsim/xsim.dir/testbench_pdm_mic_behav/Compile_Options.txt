@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "xbip_utils_v3_0_10" -L "axi_utils_v2_0_6" -L "cic_compiler_v4_0_16" -L "uvm" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "testbench_pdm_mic_behav" "xil_defaultlib.testbench_pdm_mic" "xil_defaultlib.glbl" -log "elaborate.log" 

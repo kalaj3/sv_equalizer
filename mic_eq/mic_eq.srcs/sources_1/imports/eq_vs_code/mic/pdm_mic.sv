@@ -1,12 +1,7 @@
 `timescale 1ns / 1ps
 
 
-module pdm_mic#(
-    parameter IN_FREQ = 100_000_000,   // input logic FPGA clock frequency (100 MHz)
-    parameter OUT_FREQ = 480_000,     // Desired PDM clock frequency (480khz)
-    parameter BIT_DEPTH = 8,
-    parameter DECIMATION_RATE = 10 // unused - all hidden in cic instantiation
-)(
+module pdm_mic(
     input logic clk,
     input logic rst,
    
@@ -58,22 +53,14 @@ logic [31:0] cic_out_data; // might change bc of upsampling above // dependent o
    cic_compiler_0 cic_compiler
      (
       .aclk(clk),                              // input wire aclk
-      .s_axis_data_tdata({7{mic_data_queue[2]}}, mic_data_queue[2])    // input wire [7 : 0] s_axis_data_tdata
+      .s_axis_data_tdata({7'b0,mic_data_queue[2]}),    // input wire [7 : 0] s_axis_data_tdata
       .s_axis_data_tvalid(m_clk_rising),         // input wire s_axis_data_tvalid
       .s_axis_data_tready(),  
 
-      .m_axis_data_tdata(cic_out_data),    // output wire [39 : 0] m_axis_data_tda
+      .m_axis_data_tdata(cic_out_data),    // output wire [31 : 0] m_axis_data_tda
       .m_axis_data_tvalid(cic_out_valid)  // output wire m_axis_data_tvalid
       );
 
-    always_ff @(posedge clk) begin
-    if (cic_out_valid) begin
-        pcm_data <= cic_out_data;
-        pcm_data_valid <= 1'b1;
-    end else begin
-        pcm_data_valid <= 1'b0;
-    end
-end
 
    assign pcm_data = cic_out_data;
    assign pcm_data_valid = cic_out_valid;

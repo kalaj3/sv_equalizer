@@ -1,0 +1,1 @@
+cic_compiler_0.vhd,vhdl,xil_defaultlib,../../../../mic_eq.gen/sources_1/ip/cic_compiler_0/sim/cic_compiler_0.vhd,
